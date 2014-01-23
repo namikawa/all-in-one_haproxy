@@ -7,9 +7,24 @@
 # All rights reserved - Do Not Redistribute
 #
 
-directory "/tmp/rpms" do
-  recursive true
+# package
+%W{
+  sysstat
+  dstat
+  mosh
+}.each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
+# hosts
+template "/etc/hosts" do
+  source "hosts.erb"
+  mode "0644"
+end
+
+# include recipe
 include_recipe "all-in-one_haproxy::mkswap"
+include_recipe "all-in-one_haproxy::lsyncd"
 

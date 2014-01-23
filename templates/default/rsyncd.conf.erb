@@ -1,0 +1,14 @@
+uid = root
+gid = root
+log file = <%= node['rsyncd']['log'] %>
+pid file = <%= node['rsyncd']['pid'] %>
+
+[keepalived]
+path = /etc/keepalived
+hosts allow = peer
+read only = no
+
+[haproxy]
+path = /etc/haproxy
+hosts allow = peer
+read only = no

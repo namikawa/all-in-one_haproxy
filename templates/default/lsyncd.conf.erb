@@ -1,0 +1,18 @@
+settings {
+    logfile    = "<%= node['lsyncd']['log'] %>",
+    statusFile = "<%= node['lsyncd']['status'] %>",
+    statusInterval = <%= node['lsyncd']['interval'] %>,
+}
+
+sync {
+    default.rsync,
+    source  = "/etc/keepalived",
+    target  = "peer::keepalived",
+    exclude = "keepalived.conf",
+}
+
+sync {
+    default.rsync,
+    source  = "/etc/haproxy",
+    target  = "peer::haproxy",
+}
