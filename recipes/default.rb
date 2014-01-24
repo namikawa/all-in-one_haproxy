@@ -27,4 +27,5 @@ end
 # include recipe
 include_recipe "all-in-one_haproxy::mkswap"
 include_recipe "all-in-one_haproxy::lsyncd"
+include_recipe "all-in-one_haproxy::haproxy"
 

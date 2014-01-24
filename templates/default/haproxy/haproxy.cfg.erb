@@ -1,0 +1,46 @@
+global
+    log         <%= node['haproxy']['log'] %>
+    chroot      <%= node['haproxy']['chroot'] %>
+    pidfile     <%= node['haproxy']['pid'] %>
+    maxconn     <%= node['haproxy']['maxconn'] %>
+    user        <%= node['haproxy']['user'] %>
+    group       <%= node['haproxy']['group'] %>
+    daemon
+    nbproc      <%= node['haproxy']['nbproc'] %>
+
+defaults
+    mode                    <%= node['haproxy']['defaults']['mode'] %>
+    log                     global
+    retries                 <%= node['haproxy']['defaults']['retries'] %>
+    timeout queue           <%= node['haproxy']['defaults']['to_queue'] %>
+    timeout connect         <%= node['haproxy']['defaults']['to_connect'] %>
+    timeout client          <%= node['haproxy']['defaults']['to_client'] %>
+    timeout server          <%= node['haproxy']['defaults']['to_server'] %>
+    timeout check           <%= node['haproxy']['defaults']['to_check'] %>
+
+<%- for i in 1..node['haproxy']['frontend'].size do %>
+frontend <%= node['haproxy']['frontend']["#{i}"]['name'] %>
+    <%- for addr in node['keepalived']['virtual_ipaddress']["#{i}"] do %>
+    bind        <%= addr %>:<%= node['haproxy']['frontend']["#{i}"]['bind_port'] %>
+    <%- end %>
+    mode        <%= node['haproxy']['frontend']["#{i}"]['mode'] %>
+    default_backend  <%= node['haproxy']['frontend']["#{i}"]['default_backend'] %>
+<%- end %>
+
+<%- for i in 1..node['haproxy']['backend'].size do %>
+backend <%= node['haproxy']['backend']["#{i}"]['name'] %>
+    mode        <%= node['haproxy']['backend']["#{i}"]['mode'] %>
+    balance     <%= node['haproxy']['backend']["#{i}"]['balance'] %>
+    <%- for srvinfo in node['haproxy']['backend']["#{i}"]['server'] %>
+    server <%= srvinfo %>
+    <%- end%>
+<%- end %>
+
+listen haproxy-stats
+    bind        <%= node['haproxy']['stats']['bind'] %>
+    mode        http
+    maxconn     32
+    stats       enable
+    stats       show-legends
+    stats       uri <%= node['haproxy']['stats']['uri'] %>
+
