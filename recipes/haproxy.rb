@@ -20,6 +20,10 @@ package "haproxy" do
   source "/tmp/#{filename}"
 end
 
+directory "/var/lib/haproxy" do
+  mode 0755
+end
+
 template "/etc/haproxy/haproxy.cfg" do
   source "haproxy/haproxy.cfg.erb"
   mode 0644

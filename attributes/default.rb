@@ -28,7 +28,6 @@ default['haproxy']['defaults']['to_client'] = "8h"
 default['haproxy']['defaults']['to_server'] = "8h"
 default['haproxy']['defaults']['to_check'] = "10s"
 
-
 default['haproxy']['backend']['1'] = {
   "name" => "mysql-slave",
   "mode" => "tcp",
