@@ -25,7 +25,14 @@ template "/etc/hosts" do
 end
 
 # sysctl
+cookbook_file "/etc/sysctl.conf" do
+  source "sysctl.conf"
+  mode 0644
+end
 
+execute "sysctl -p" do
+  command "/sbin/sysctl -p"
+end
 
 # limits.conf
 
