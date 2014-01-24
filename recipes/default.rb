@@ -35,7 +35,10 @@ execute "sysctl -p" do
 end
 
 # limits.conf
-
+template "/etc/security/limits.conf" do
+  source "security/limits.conf.erb"
+  mode 0644
+end
 
 # iptables
 
