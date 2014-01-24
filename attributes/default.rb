@@ -17,7 +17,7 @@ default['haproxy']['chroot'] = "/var/lib/haproxy"
 default['haproxy']['pid'] = "/var/run/haproxy.pid"
 default['haproxy']['user'] = "nobody"
 default['haproxy']['group'] = "nobody"
-default['haproxy']['maxconn'] = "65536"
+default['haproxy']['maxconn'] = "60000"
 default['haproxy']['nbproc'] = "2"
 
 default['haproxy']['defaults']['mode'] = "tcp"
@@ -50,8 +50,14 @@ default['haproxy']['stats']['bind'] = "ipv6@:3000"
 default['haproxy']['stats']['uri'] = "/"
 
 ##### keepalived #####
-default['keepalived']['peer_address'] = "127.0.0.1"
+default['keepalived']['peer'] = "127.0.0.1"
 default['keepalived']['virtual_ipaddress']['1'] = [
   "127.0.0.1",
   "::1",
 ]
+
+default['keepalived']['interface'] = "eth0"
+default['keepalived']['virtual_router_id'] = "200"
+default['keepalived']['advert_int'] = "1"
+default['keepalived']['auth_pass'] = "DJc9kI1n"
+

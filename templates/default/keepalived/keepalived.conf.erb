@@ -1,0 +1,20 @@
+vrrp_instance VI_01 {
+    state BACKUP
+    interface <%= node['keepalived']['interface'] %>
+    virtual_router_id <%= node['keepalived']['virtual_router_id'] %>
+    priority 100
+    nopreempt
+    advert_int <%= node['keepalived']['advert_int'] %>
+    authentication {
+        auth_type PASS
+        auth_pass <%= node['keepalived']['auth_pass'] %>
+    }
+    unicast_peer {
+        <%= node['keepalived']['peer'] %> dev <%= node['keepalived']['interface'] %>
+    }
+    include virtual_address.conf
+
+    notify_master "/etc/init.d/haproxy start && /etc/init.d/lsyncd start"
+    notify_backup "/etc/init.d/haproxy stop && /etc/init.d/lsyncd stop"
+}
+

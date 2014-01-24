@@ -1,0 +1,9 @@
+virtual_ipaddress {
+<%- for i in 1..node['keepalived']['virtual_ipaddress'].size do %>
+    <%- for addr in node['keepalived']['virtual_ipaddress']["#{i}"] do %>
+    <%- mask = addr.include?(".") ? 32 : 128 %>
+    <%= addr %>/<%= mask %> dev <%= node['keepalived']['interface'] %>
+    <%- end %>
+<%- end %>
+}
+
