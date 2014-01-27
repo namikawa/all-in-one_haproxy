@@ -16,3 +16,13 @@ sync {
     source  = "/etc/haproxy",
     target  = "peer::haproxy",
 }
+
+sync {
+    default.rsync,
+    source  = "/etc/sysconfig",
+    target  = "peer::sysconfig",
+    rsync   = {
+        _extra = {"-az", "--include=iptables", "--include=ip6tables", "--exclude=*"},
+    },
+}
+

@@ -40,12 +40,10 @@ template "/etc/security/limits.conf" do
   mode 0644
 end
 
-# iptables
-
-
 # include recipe
 include_recipe "all-in-one_haproxy::mkswap"
 include_recipe "all-in-one_haproxy::lsyncd"
 include_recipe "all-in-one_haproxy::haproxy"
 include_recipe "all-in-one_haproxy::keepalived"
+include_recipe "all-in-one_haproxy::iptables"
 
