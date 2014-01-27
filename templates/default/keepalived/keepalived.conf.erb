@@ -14,7 +14,7 @@ vrrp_instance VI_01 {
     }
     include virtual_address.conf
 
-    notify_master "/etc/init.d/haproxy start && /etc/init.d/lsyncd start"
+    notify_master "/etc/init.d/haproxy start && /etc/init.d/lsyncd start && /etc/init.d/iptables restart"
     notify_backup "/etc/init.d/haproxy stop && /etc/init.d/lsyncd stop"
 }
 

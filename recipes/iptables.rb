@@ -7,13 +7,25 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# ToDo: src filter only now.
-template "/etc/sysconfig/iptables" do
-  source "sysconfig/iptables.erb"
-  mode 0600
-end
+# Spec(ToDo): allow src address filter only now.
+%w{
+  iptables
+  ip6tables
+}.each do |file|
+  template "/etc/sysconfig/#{file}" do
+    source "sysconfig/iptables.erb"
+    mode 0600
+    variables(
+      :file => file
+    )
+  end
 
-service "keepalived" do
-  action [ :enable, :start ]
+  service file do
+    if !node["#{file}"].nil?
+      action [ :enable, :start ]
+    else
+      action [ :disable, :stop ]
+    end
+  end
 end
 
