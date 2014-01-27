@@ -1,0 +1,12 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+<%- for i in 1..node['iptables']['allow']['src'].size do %>
+<%- for addr in node['iptables']['allow']['src']["#{i}"]['address'] do %>
+-A INPUT -s <%= addr %> -p tcp -m tcp --dport <%= node['iptables']['allow']['src']["#{i}"]['dport'] %> -j ACCEPT
+<%- end %>
+-A INPUT -p tcp -m tcp --dport <%= node['iptables']['allow']['src']["#{i}"]['dport'] %> -j REJECT --reject-with icmp-port-unreachable
+<%- end %>
+COMMIT
+
