@@ -50,7 +50,7 @@ default['haproxy']['stats']['bind'] = "ipv6@:3000"
 default['haproxy']['stats']['uri'] = "/"
 
 ##### keepalived #####
-default['keepalived']['peer'] = "127.0.0.1"
+default['keepalived']['peer'] = "192.168.235.61"
 default['keepalived']['virtual_ipaddress']['1'] = [
   "192.168.235.210",
   "FD00::1234",
@@ -71,13 +71,13 @@ default['limits']['all']['hard_nofile'] = "65536"
 default['limits']['all']['soft_stack'] = "65536"
 
 ##### iptables & ip6tables #####
-#default['iptables']['allow']['src']['1'] = {
-#  "dport" => "3306",
-#  "address" => [
-#    "192.168.233.120/32",
-#    "192.168.234.120/32",
-#  ],
-#}
+default['iptables']['allow']['src']['1'] = {
+  "dport" => "3306",
+  "address" => [
+    "192.168.233.120/32",
+    "192.168.234.120/32",
+  ],
+}
 
 default['ip6tables']['allow']['src']['1'] = {
   "dport" => "3306",
