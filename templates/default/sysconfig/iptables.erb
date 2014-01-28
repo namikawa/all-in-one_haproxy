@@ -2,7 +2,7 @@
 :INPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
-<%- if !node["#{@file}"].nil? %>
+<%- if !node["#{@file}"].nil? and !node["#{@file}"].size == 0 %>
   <%- for i in 1..node["#{@file}"]['allow']['src'].size do %>
     <%- for addr in node["#{@file}"]['allow']['src']["#{i}"]['address'] do %>
 -A INPUT -s <%= addr %> -p tcp -m tcp --dport <%= node["#{@file}"]['allow']['src']["#{i}"]['dport'] %> -j ACCEPT
