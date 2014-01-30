@@ -1,68 +1,73 @@
 all-in-one_haproxy Cookbook
 ===========================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+2台でのHA構成を想定したHAProxyサーバを作るためのChef Cookbook。
+以下が処理概要。
+
+- rsync + lsyncdの導入 (設定ファイルの同期)
+- keepalivedの導入 (HAクラスタ)
+- HAProxyの導入 (LB/ReverseProxy)
+- iptables/ip6tablesの設定 (接続元の限定)
+- swapの作成
+- その他kernelパラメータの調整
+
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - all-in-one_haproxy needs toaster to brown your bagel.
+- RHEL/CentOS6系に対応
+- IPv4/IPv6両対応
+- 残念なことに、他Cookbookとの共存はあまり意識していません
 
-Attributes
-----------
-TODO: List you cookbook attributes here.
-
-e.g.
-#### all-in-one_haproxy::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['all-in-one_haproxy']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
 
 Usage
 -----
-#### all-in-one_haproxy::default
-TODO: Write usage instructions for each cookbook.
+
+Chef-solo(knife-solo)から実行できます。(Chef-serverに登録してももちろんOK)
+cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
+
+    $ sudo chef-solo -c (solo.rbのパス) -j (nodeのjsonのパス)
+
+手っ取り早く試したい場合は、remote経由でcookbookを取得して実行してください。
+(/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
+
+    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140130-01.tar.gz
 
 e.g.
 Just include `all-in-one_haproxy` in your node's `run_list`:
 
 ```json
 {
-  "name":"my_node",
-  "run_list": [
-    "recipe[all-in-one_haproxy]"
-  ]
+  "name":"lb01",
+  "run_list": "recipe[all-in-one_haproxy]",
+  "haproxy": {
+    "nbproc": "4",
+    "backend": {
+      "1": {"server": [
+        "db001 db001.example.com:3306 weight 10 check port 3306 inter 5000 fall 3",
+        "db002 db002.example.com:3306 weight 10 check port 3306 inter 5000 fall 3"
+      ]}
+    }
+  },
+  "keepalived": {
+    "peer": "192.168.110.112",
+    "virtual_ipaddress": {"1": ["192.168.110.211"]},
+    "auth_pass": "3T1zlFZz"
+  },
+  "iptables": {"allow": {"src": {
+    "1": {"address": [
+      "192.168.110.31/32",
+      "192.168.111.31/32"
+    ]}
+  }}},
+  "ip6tables": ""
 }
 ```
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+#### HA構成(2台)での利用
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを2台それぞれで変更する必要があります。
 
-License and Authors
--------------------
-Authors: TODO: List authors
+- `node['keepalived']['peer']`
+-- HAクラスタで対向となるサーバのIPアドレスを入力します
+
