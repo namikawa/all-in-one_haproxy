@@ -3,7 +3,7 @@
   "haproxy": {
     "nbproc": "4",
     "backend": {
-      "1": {"server": [
+      "mysql": {"server": [
         "db001 db001.example.com:3306 weight 10 check port 3306 inter 5000 fall 3",
         "db002 db002.example.com:3306 weight 10 check port 3306 inter 5000 fall 3"
       ]}
@@ -11,11 +11,11 @@
   },
   "keepalived": {
     "peer": "192.168.110.112",
-    "virtual_ipaddress": {"1": ["192.168.110.211"]},
+    "virtual_ipaddress": {"mysql": ["192.168.110.211"]},
     "auth_pass": "3T1zlFZz"
   },
   "iptables": {"allow": {"src": {
-    "1": {"address": [
+    "mysql": {"address": [
       "192.168.110.31/32",
       "192.168.111.31/32"
     ]}

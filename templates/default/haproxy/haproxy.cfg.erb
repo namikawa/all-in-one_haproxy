@@ -18,22 +18,23 @@ defaults
     timeout server          <%= node['haproxy']['defaults']['to_server'] %>
     timeout check           <%= node['haproxy']['defaults']['to_check'] %>
 
-<%- for i in 1..node['haproxy']['frontend'].size do %>
-frontend <%= node['haproxy']['frontend']["#{i}"]['name'] %>
-    <%- for addr in node['keepalived']['virtual_ipaddress']["#{i}"] do %>
-    bind        <%= addr %>:<%= node['haproxy']['frontend']["#{i}"]['bind_port'] %>
+<%- for id, fe in node['haproxy']['frontend'] do %>
+<%- p id, fe %>
+frontend <%= fe['name'] %>
+    <%- for addr in node['keepalived']['virtual_ipaddress']["#{id}"] do %>
+    bind        <%= addr %>:<%= fe['bind_port'] %>
     <%- end %>
-    mode        <%= node['haproxy']['frontend']["#{i}"]['mode'] %>
-    default_backend  <%= node['haproxy']['frontend']["#{i}"]['default_backend'] %>
+    mode        <%= fe['mode'] %>
+    default_backend  <%= fe['default_backend'] %>
 <%- end %>
 
-<%- for i in 1..node['haproxy']['backend'].size do %>
-backend <%= node['haproxy']['backend']["#{i}"]['name'] %>
-    mode        <%= node['haproxy']['backend']["#{i}"]['mode'] %>
-    balance     <%= node['haproxy']['backend']["#{i}"]['balance'] %>
-    <%- for srvinfo in node['haproxy']['backend']["#{i}"]['server'] %>
+<%- for id, be in node['haproxy']['backend'] do %>
+backend <%= be['name'] %>
+    mode        <%= be['mode'] %>
+    balance     <%= be['balance'] %>
+    <%- for srvinfo in be['server'] %>
     server <%= srvinfo %>
-    <%- end%>
+    <%- end %>
 <%- end %>
 
 listen haproxy-stats

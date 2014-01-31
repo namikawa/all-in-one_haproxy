@@ -21,7 +21,7 @@
   end
 
   service file do
-    if !node["#{file}"].nil? and !node["#{file}"].size == 0
+    if !node["#{file}"].nil? and node["#{file}"].size != 0
       action [ :enable, :start ]
     else
       action [ :disable, :stop ]

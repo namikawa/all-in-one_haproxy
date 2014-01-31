@@ -28,7 +28,7 @@ default['haproxy']['defaults']['to_client'] = "8h"
 default['haproxy']['defaults']['to_server'] = "8h"
 default['haproxy']['defaults']['to_check'] = "10s"
 
-default['haproxy']['backend']['1'] = {
+default['haproxy']['backend']['mysql'] = {
   "name" => "mysql-slave",
   "mode" => "tcp",
   "balance" => "roundrobin",
@@ -39,11 +39,11 @@ default['haproxy']['backend']['1'] = {
   ],
 }
 
-default['haproxy']['frontend']['1'] = {
+default['haproxy']['frontend']['mysql'] = {
   "name" => "mysql",
   "bind_port" => "3306",
   "mode" => "tcp",
-  "default_backend" => default['haproxy']['backend']['1']['name'],
+  "default_backend" => default['haproxy']['backend']['mysql']['name'],
 }
 
 default['haproxy']['stats']['bind'] = "ipv6@:3000"
@@ -51,7 +51,7 @@ default['haproxy']['stats']['uri'] = "/"
 
 ##### keepalived #####
 default['keepalived']['peer'] = "192.168.235.61"
-default['keepalived']['virtual_ipaddress']['1'] = [
+default['keepalived']['virtual_ipaddress']['mysql'] = [
   "192.168.235.210",
   "FD00::1234",
 ]
@@ -71,7 +71,7 @@ default['limits']['all']['hard_nofile'] = "65536"
 default['limits']['all']['soft_stack'] = "65536"
 
 ##### iptables & ip6tables #####
-default['iptables']['allow']['src']['1'] = {
+default['iptables']['allow']['src']['mysql'] = {
   "dport" => "3306",
   "address" => [
     "192.168.233.120/32",
@@ -79,7 +79,7 @@ default['iptables']['allow']['src']['1'] = {
   ],
 }
 
-default['ip6tables']['allow']['src']['1'] = {
+default['ip6tables']['allow']['src']['mysql'] = {
   "dport" => "3306",
   "address" => [
     "FD00::100:1234/128",
