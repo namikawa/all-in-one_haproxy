@@ -69,5 +69,5 @@ Just include `all-in-one_haproxy` in your node's `run_list`:
 2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを2台それぞれで変更する必要があります。
 
 - `node['keepalived']['peer']`
--- HAクラスタで対向となるサーバのIPアドレスを入力します
+     - HAクラスタで対向となるサーバのIPアドレスを入力します
 
