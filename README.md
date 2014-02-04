@@ -12,8 +12,8 @@ all-in-one_haproxy Cookbook
 - その他kernelパラメータの調整
 
 
-Requirements
-------------
+Requirements / Notice
+---------------------
 
 - RHEL/CentOS6系に対応
 - IPv4/IPv6両対応
@@ -63,6 +63,20 @@ Just include `all-in-one_haproxy` in your node's `run_list`:
   "ip6tables": ""
 }
 ```
+
+#### Attribute
+
+`attribute/default.rb` で各種パラメータを設定可能です。
+
+下記の要素名は任意の文字列となります。設定を追記する場合は、わかりやすい任意の文字列を設定してください。
+(defaultは'mysql'のみとなっていて、'mysql'向けのHAProxy設定やそれに紐づくVIP、FW等の設定が入っているイメージです。)
+
+- `node['haproxy']['frontend']['(任意の文字列)']`
+- `node['haproxy']['backend']['(任意の文字列)']`
+- `node['keepalived']['virtual_ipaddress']['(任意の文字列)']`
+- `node['iptables']['allow']['src']['(任意の文字列)']`
+- `node['ip6tables']['allow']['src']['(任意の文字列)']`
+
 
 #### HA構成(2台)での利用
 
