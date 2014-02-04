@@ -31,7 +31,7 @@ cookbook_pathにcookbookが配置されている前提で、以下のような�
 手っ取り早く試したい場合は、remote経由でcookbookを取得して実行してください。
 (/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
 
-    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140130-01.tar.gz
+    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140204-01.tar.gz
 
 e.g.
 Just include `all-in-one_haproxy` in your node's `run_list`:
