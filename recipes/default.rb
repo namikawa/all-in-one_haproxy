@@ -12,6 +12,7 @@
   sysstat
   dstat
   mosh
+  net-snmp
 }.each do |pkg|
   package pkg do
     action :install
@@ -38,6 +39,11 @@ end
 template "/etc/security/limits.conf" do
   source "security/limits.conf.erb"
   mode 0644
+end
+
+# snmpd
+service "snmpd" do
+  action [ :enable, :restart ]
 end
 
 # include recipe
