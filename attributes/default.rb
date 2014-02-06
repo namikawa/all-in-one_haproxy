@@ -87,3 +87,10 @@ default['ip6tables']['allow']['src']['mysql'] = {
   ],
 }
 
+##### snmpd
+default['snmpd']['sec']['community'] = "public"
+default['snmpd']['sec']['source'] = [
+  "10.32.0.0/12",
+  "localhost",
+]
+
