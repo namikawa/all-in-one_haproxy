@@ -42,6 +42,11 @@ template "/etc/security/limits.conf" do
 end
 
 # snmpd
+template "/etc/snmp/snmpd.conf" do
+  source "snmp/snmpd.conf.erb"
+  mode 0644
+end
+
 service "snmpd" do
   action [ :enable, :restart ]
 end

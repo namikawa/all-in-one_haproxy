@@ -2,6 +2,7 @@ all-in-one_haproxy Cookbook
 ===========================
 
 2台でのHA構成を想定したHAProxyサーバを作るためのChef Cookbook。
+
 以下が処理概要。
 
 - rsync + lsyncdの導入 (設定ファイルの同期)
@@ -24,11 +25,13 @@ Usage
 -----
 
 Chef-solo(knife-solo)から実行できます。(Chef-serverに登録してももちろんOK)
+
 cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
 
     $ sudo chef-solo -c (solo.rbのパス) -j (nodeのjsonのパス)
 
 手っ取り早く試したい場合は、remote経由でcookbookを取得して実行してください。
+
 (/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
 
     $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140204-01.tar.gz
@@ -69,6 +72,7 @@ Just include `all-in-one_haproxy` in your node's `run_list`:
 `attribute/default.rb` で各種パラメータを設定可能です。
 
 下記の要素名は任意の文字列となります。設定を追記する場合は、わかりやすい任意の文字列を設定してください。
+
 (defaultは'mysql'のみとなっていて、'mysql'向けのHAProxy設定やそれに紐づくVIP、FW等の設定が入っているイメージです。)
 
 - `node['haproxy']['frontend']['(任意の文字列)']`
