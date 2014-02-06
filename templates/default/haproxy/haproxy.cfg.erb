@@ -19,7 +19,6 @@ defaults
     timeout check           <%= node['haproxy']['defaults']['to_check'] %>
 
 <%- for id, fe in node['haproxy']['frontend'] do %>
-<%- p id, fe %>
 frontend <%= fe['name'] %>
     <%- for addr in node['keepalived']['virtual_ipaddress']["#{id}"] do %>
     bind        <%= addr %>:<%= fe['bind_port'] %>
