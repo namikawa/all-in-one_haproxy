@@ -16,7 +16,7 @@
   end
 end
 
-filename = "keepalived-1.2.10-1.x86_64.rpm"
+filename = "keepalived-1.2.11-1.x86_64.rpm"
 
 cookbook_file "/tmp/#{filename}" do
   source filename
