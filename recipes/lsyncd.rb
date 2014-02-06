@@ -32,18 +32,7 @@ service "xinetd" do
 end
 
 # lsyncd
-filename = "lsyncd-2.1.4-1.el6.rf.x86_64.rpm"
-
-cookbook_file "/tmp/#{filename}" do
-  source filename
-  mode 0644
-end
-
-package "lsyncd" do
-  action :install
-  provider Chef::Provider::Package::Rpm
-  source "/tmp/#{filename}"
-end 
+package_localrpm("lsyncd", "lsyncd-2.1.4-1.el6.rf.x86_64.rpm")
 
 template "/etc/lsyncd.conf" do
   source "lsyncd.conf.erb"

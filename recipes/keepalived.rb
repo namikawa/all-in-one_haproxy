@@ -16,18 +16,7 @@
   end
 end
 
-filename = "keepalived-1.2.11-1.x86_64.rpm"
-
-cookbook_file "/tmp/#{filename}" do
-  source filename
-  mode 0644
-end
-
-package "keepalived" do
-  action :install
-  provider Chef::Provider::Package::Rpm
-  source "/tmp/#{filename}"
-end
+package_localrpm("keepalived", "keepalived-1.2.11-1.x86_64.rpm")
 
 %w{
   keepalived.conf
