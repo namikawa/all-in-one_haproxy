@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# Spec(ToDo): allow src address filter only now.
+# SPEC(ToDo): allow src address filter only now.
 %w{
   iptables
   ip6tables

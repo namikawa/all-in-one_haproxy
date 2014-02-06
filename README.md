@@ -9,6 +9,7 @@ all-in-one_haproxy Cookbook
 - keepalivedの導入 (HAクラスタ)
 - HAProxyの導入 (LB/ReverseProxy)
 - iptables/ip6tablesの設定 (接続元の限定)
+- snmpdの設定と起動
 - swapの作成
 - その他kernelパラメータの調整
 
