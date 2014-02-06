@@ -7,13 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{
-  libnl
-  net-snmp
-}.each do |pkg|
-  package pkg do
-    action :install
-  end
+package "libnl" do
+  action :install
 end
 
 package_localrpm("keepalived", "keepalived-1.2.11-1.x86_64.rpm")
