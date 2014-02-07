@@ -35,7 +35,7 @@ cookbook_pathにcookbookが配置されている前提で、以下のような�
 
 (/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
 
-    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140204-01.tar.gz
+    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140207-01.tar.gz
 
 e.g.
 Just include `all-in-one_haproxy` in your node's `run_list`:
@@ -72,9 +72,9 @@ Just include `all-in-one_haproxy` in your node's `run_list`:
 
 `attribute/default.rb` で各種パラメータを設定可能です。
 
-下記の要素名は任意の文字列となります。設定を追記する場合は、わかりやすい任意の文字列を設定してください。
+下記で示している要素名は任意の文字列となります。設定を追記する場合は、わかりやすい任意の文字列を設定してください。
 
-(defaultは'mysql'のみとなっていて、'mysql'向けのHAProxy設定やそれに紐づくVIP、FW等の設定が入っているイメージです。)
+(サンプルとなるdefaultは'mysql'のみとなっており、'mysql'向けのHAProxy設定やそれに紐づくVIP、FW等の設定が入っているイメージです。)
 
 - `node['haproxy']['frontend']['(任意の文字列)']`
 - `node['haproxy']['backend']['(任意の文字列)']`
