@@ -27,11 +27,11 @@ describe 'all-in-one_haproxy::default' do
     expect(chef_run).to render_file('/etc/security/limits.conf').with_content('*       hard    nofile  65536')
   end
 
-  it 'configure snmpd.conf' do
+  it 'configure snmpd' do
     expect(chef_run).to render_file('/etc/snmp/snmpd.conf').with_content('com2sec notConfigUser  10.32.0.0/12  public')
   end
 
-  it 'configure snmpd' do
+  it 'service snmpd' do
     expect(chef_run).to enable_service('snmpd')
     expect(chef_run).to restart_service('snmpd')
   end

@@ -17,3 +17,7 @@ template "/etc/haproxy/haproxy.cfg" do
   mode 0644
 end
 
+service "haproxy" do
+  action [ :disable, :stop ]
+end
+

@@ -18,13 +18,18 @@ describe 'all-in-one_haproxy::lsyncd' do
     expect(chef_run).to render_file('/etc/rsyncd.conf')
   end
 
-  it 'configure sysctl' do
+  it 'service xinetd' do
     expect(chef_run).to enable_service('xinetd')
     expect(chef_run).to restart_service('xinetd')
   end
 
   it 'configure lsyncd' do
     expect(chef_run).to render_file('/etc/lsyncd.conf')
+  end
+
+  it 'not service lsyncd' do
+    expect(chef_run).to disable_service('lsyncd')
+    expect(chef_run).to stop_service('lsyncd')
   end
 end
 

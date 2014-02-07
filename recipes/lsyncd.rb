@@ -39,3 +39,7 @@ template "/etc/lsyncd.conf" do
   mode 0644
 end
 
+service "lsyncd" do
+  action [ :disable, :stop ]
+end
+

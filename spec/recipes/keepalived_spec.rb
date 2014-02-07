@@ -22,7 +22,7 @@ describe 'all-in-one_haproxy::keepalived' do
         expect(chef_run).to render_file('/etc/keepalived/virtual_address.conf').with_content('FD00::1234/128 dev eth0')
   end
 
-  it 'configure keepalived' do
+  it 'service keepalived' do
     expect(chef_run).to enable_service('keepalived')
     expect(chef_run).to restart_service('keepalived')
   end

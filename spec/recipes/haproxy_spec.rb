@@ -16,5 +16,10 @@ describe 'all-in-one_haproxy::haproxy' do
     expect(chef_run).to render_file('/etc/haproxy/haproxy.cfg').with_content("bind        FD00::1234:3306")
     expect(chef_run).to render_file('/etc/haproxy/haproxy.cfg').with_content("db02 db02:3306 weight 10 check port 3306 inter 3000 fall 2")
   end
+
+  it 'not service haproxy' do
+    expect(chef_run).to disable_service('haproxy')
+    expect(chef_run).to stop_service('haproxy')
+  end
 end
 
