@@ -5,12 +5,12 @@ all-in-one_haproxy Cookbook
 
 以下が処理概要。
 
-- rsync + lsyncdの導入 (設定ファイルの同期)
-- keepalivedの導入 (HAクラスタ)
-- HAProxyの導入 (LB/ReverseProxy)
+- rsync + lsyncdの導入 (各種設定ファイルの同期)
+- keepalivedの導入 (HAクラスタ構成の実現)
+- HAProxyの導入 (LB/ReverseProxyソフトウェア)
 - iptables/ip6tablesの設定 (接続元の限定)
 - snmpdの設定と起動
-- swapの作成
+- swap領域の作成
 - その他kernelパラメータの調整
 
 
