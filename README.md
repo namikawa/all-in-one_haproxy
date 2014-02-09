@@ -20,12 +20,13 @@ Requirements / Notice
 - RHEL/CentOS6系に対応
 - IPv4/IPv6両対応
 - 残念なことに、他Cookbookとの共存はあまり意識していません
+    - できる限り、本Cookbook単体でお使いください
 
 
 Usage
 -----
 
-Chef-solo(knife-solo)から実行できます。(Chef-serverに登録してももちろんOK)
+Chef-solo(knife-solo)から実行できます。(Chef-serverに本Cookbbokを登録してお使い頂いても、もちろんOKです)
 
 cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
 
@@ -83,10 +84,9 @@ Just include `all-in-one_haproxy` in your node's `run_list`:
 - `node['ip6tables']['allow']['src']['(任意の文字列)']`
 
 
-#### HA構成(2台)での利用
+#### HAクラスタ構成(2台)での利用
 
-2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを2台それぞれで変更する必要があります。
+HAクラスタを構成すべき2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを2台それぞれで変更する必要があります。
 
 - `node['keepalived']['peer']`
      - HAクラスタで対向となるサーバのIPアドレスを入力します
-
