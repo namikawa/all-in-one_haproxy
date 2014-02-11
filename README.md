@@ -28,11 +28,12 @@ Usage
 
 Chef-solo(knife-solo)から実行できます。(Chef-serverに本Cookbbokを登録してお使い頂いても、もちろんOKです)
 
-cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
+(solo.rb等の)cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
 
     $ sudo chef-solo -c (solo.rbのパス) -j (nodeのjsonのパス)
 
-手っ取り早く試したい場合は、remote経由でcookbookを取得して実行してください。
+
+Cookbookの事前配置をせずに、手っ取り早く試したい場合は、以下のような感じでremote経由でcookbookを取得して実行してください。
 
 (/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
 
