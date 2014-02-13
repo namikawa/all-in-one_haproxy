@@ -26,13 +26,13 @@ Usage
 
 Chef-solo(knife-solo)から実行できます。(Chef-serverに本Cookbbokを登録してお使い頂いても、もちろんOKです)
 
-(solo.rb等の)cookbook_pathにcookbookが配置されている前提で、以下のような感じで実行してみてください。
+(`solo.rb`等の) `cookbook_path`にcookbookが配置されている前提で、以下のような感じで実行してみてください。
 
     $ sudo chef-solo -c (solo.rbのパス) -j (nodeのjsonのパス)
 
 Cookbookの事前配置をせずに、手っ取り早く試したい場合は、以下のような感じでremote経由でcookbookを取得して実行してください。
 
-(/etc/chef/solo.rbが配置されている前提。node.jsonはサンプル。)
+(`/etc/chef/solo.rb`が配置されている前提。node.jsonはサンプル。)
 
     $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140207-01.tar.gz
 
