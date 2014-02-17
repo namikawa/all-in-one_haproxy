@@ -16,8 +16,8 @@ all-in-one_haproxy Cookbook
 Requirements / Notice
 ---------------------
 
-- RHEL/CentOS6系に対応
-- IPv4/IPv6両対応
+- RHEL/CentOS 6系に対応
+- IPv4/IPv6/Dual Stack対応
 - 残念なことに、他Cookbookとの共存はあまり意識していません
     - できる限り、本Cookbook単体でお使いください
 
