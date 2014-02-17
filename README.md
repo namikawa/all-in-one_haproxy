@@ -36,6 +36,20 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 
     $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140207-01.tar.gz
 
+#### Recipes
+
+`default` recipeを指定すると、以下Recipeが全部入りで導入されます。
+
+- `all-in-one_haproxy::base`
+- `all-in-one_haproxy::snmpd`
+- `all-in-one_haproxy::mkswap`
+- `all-in-one_haproxy::lsyncd`
+- `all-in-one_haproxy::haproxy`
+- `all-in-one_haproxy::keepalived`
+- `all-in-one_haproxy::iptables`
+
+全て必要ない場合は、必要に応じて`run_list`等で、Recipeを指定してください。
+
 #### node.jsonのsample
 
 ```json
@@ -89,3 +103,4 @@ HAクラスタを構成すべき2台とも同じCookbookで構築できますが
 
 - `node['keepalived']['peer']`
      - HAクラスタで対向となるサーバのIPアドレスを入力します
+
