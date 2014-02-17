@@ -41,20 +41,11 @@ template "/etc/security/limits.conf" do
   mode 0644
 end
 
-# snmpd
-template "/etc/snmp/snmpd.conf" do
-  source "snmp/snmpd.conf.erb"
-  mode 0644
-end
-
-service "snmpd" do
-  action [ :enable, :restart ]
-end
-
 # include recipe
 include_recipe "all-in-one_haproxy::mkswap"
 include_recipe "all-in-one_haproxy::lsyncd"
 include_recipe "all-in-one_haproxy::haproxy"
 include_recipe "all-in-one_haproxy::keepalived"
 include_recipe "all-in-one_haproxy::iptables"
+include_recipe "all-in-one_haproxy::snmpd"
 
