@@ -38,7 +38,7 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 
 #### Recipes
 
-`default` recipeを指定すると、以下Recipeが全部入りで導入されます。
+`all-in-one_haproxy::default`Recipeを指定すると、以下Recipeが全部入りで導入されます。
 
 - `all-in-one_haproxy::base`
 - `all-in-one_haproxy::snmpd`
