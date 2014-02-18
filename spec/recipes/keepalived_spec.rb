@@ -5,6 +5,7 @@ describe 'all-in-one_haproxy::keepalived' do
 
   %w{
     libnl
+    net-snmp
     keepalived
   }.each do |p|
     it "install #{p}" do
