@@ -48,7 +48,7 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 - `all-in-one_haproxy::keepalived`
 - `all-in-one_haproxy::iptables`
 
-全て必要ない場合は、必要に応じて`run_list`等で、Recipeを指定してください。
+全て必要ない場合は、必要に応じて`run_list`等で、必要なRecipeを指定してください。
 
 #### node.jsonのsample
 
@@ -82,9 +82,7 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 
 #### Attribute
 
-`attribute/default.rb` で各種パラメータを設定可能です。
-
-下記のAttributeで示している要素名は任意の文字列となります。
+`attribute/default.rb` で各種パラメータを設定可能です。下記のAttributeで示している要素名は任意の文字列となります。
 
 設定を追加する場合は、以下を参考に、わかりやすい任意の文字列を設定してください。
 
@@ -99,8 +97,10 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 
 #### HAクラスタ構成(2台)での利用
 
-HAクラスタを構成すべき2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを2台それぞれで変更する必要があります。
+HAクラスタを構成すべき2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを、2台それぞれで変更する必要があります。
 
 - `node['keepalived']['peer']`
      - HAクラスタで対向となるサーバのIPアドレスを入力します
+
+(通常、基本的には、上記以外のAttributeを変更する必要はありません。)
 
