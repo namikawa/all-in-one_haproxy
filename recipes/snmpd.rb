@@ -7,13 +7,23 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "net-snmp" do
-  action :install
+%w{
+  net-snmp
+  net-snmp-perl
+}.each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
 template "/etc/snmp/snmpd.conf" do
   source "snmp/snmpd.conf.erb"
   mode 0644
+end
+
+cookbook_file "/etc/snmp/haproxy.pl" do
+  source "haproxy.pl"
+  mode 0755
 end
 
 service "snmpd" do

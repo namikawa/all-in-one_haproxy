@@ -465,3 +465,9 @@ dontLogTCPWrappersConnects yes
 # Further Information
 #
 #  See the snmpd.conf manual page, and the output of "snmpd -H".
+
+
+# for HAProxy
+disablePerl false
+perl do '/etc/snmp/haproxy.pl';
+
