@@ -33,6 +33,11 @@ frontend <%= fe['name'] %>
 backend <%= be['name'] %>
     mode        <%= be['mode'] %>
     balance     <%= be['balance'] %>
+    <%- if !be['option'].nil? and be['option'].size != 0 %>
+      <%- for opt in be['option'] %>
+    option      <%= opt %>
+      <%- end %>
+    <%- end %>
     <%- for srvinfo in be['server'] %>
     server <%= srvinfo %>
     <%- end %>

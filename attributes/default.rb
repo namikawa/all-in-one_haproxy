@@ -32,6 +32,9 @@ default['haproxy']['backend']['mysql'] = {
   "name" => "mysql-slave",
   "mode" => "tcp",
   "balance" => "roundrobin",
+  "option" => [
+    "mysql-check user root",
+  ],
   "server" => [
     "db01 db01:3306 weight 10 check port 3306 inter 3000 fall 2",
     "db02 db02:3306 weight 10 check port 3306 inter 3000 fall 2",
