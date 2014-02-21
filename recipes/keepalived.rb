@@ -16,7 +16,7 @@
   end
 end
 
-package_localrpm("keepalived", "keepalived-1.2.10-1.x86_64.rpm")
+package_localrpm("keepalived", "keepalived-1.2.12-1.x86_64.rpm")
 
 %w{
   keepalived.conf
