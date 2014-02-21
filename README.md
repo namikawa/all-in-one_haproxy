@@ -34,7 +34,7 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 
 (`/etc/chef/solo.rb`が配置されている前提。node.jsonはサンプル。)
 
-    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140217-01.tar.gz
+    $ sudo chef-solo -j https://raw.github.com/namikawa/chef-cookbooks/master/all-in-one_haproxy/samples/solo/node.json -r https://dl.dropboxusercontent.com/u/684783/cookbooks/all-in-one_haproxy_20140221-1.tar.gz
 
 #### Recipes
 

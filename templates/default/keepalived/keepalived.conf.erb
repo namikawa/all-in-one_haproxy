@@ -12,7 +12,7 @@ vrrp_instance VI_01 {
     unicast_peer {
         <%= node['keepalived']['peer'] %> dev <%= node['keepalived']['interface'] %>
     }
-    include virtual_address.conf
+    include /etc/keepalived/virtual_address.conf
 
     notify_master "/etc/init.d/haproxy start && /etc/init.d/lsyncd start && /etc/init.d/iptables restart"
     notify_backup "/etc/init.d/haproxy stop && /etc/init.d/lsyncd stop"
