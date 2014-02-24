@@ -15,7 +15,7 @@ describe 'all-in-one_haproxy::keepalived' do
 
   it 'configure keepalived.conf' do
     expect(chef_run).to render_file('/etc/keepalived/keepalived.conf').with_content('192.168.235.61 dev eth0')
-    expect(chef_run).to render_file('/etc/keepalived/keepalived.conf').with_content('include virtual_address.conf')
+    expect(chef_run).to render_file('/etc/keepalived/keepalived.conf').with_content('include /etc/keepalived/virtual_address.conf')
   end
 
   it 'configure virtual_address.conf' do
