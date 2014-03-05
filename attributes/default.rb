@@ -97,3 +97,9 @@ default['snmpd']['sec']['source'] = [
   "localhost",
 ]
 
+##### quagga (zebra)
+default['quagga']['password'] = "zebra"
+default['quagga']['ospfd']['network'] = [
+  "10.1.255.0/28",
+]
+
