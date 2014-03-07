@@ -1,0 +1,10 @@
+hostname <%= node['hostname'] %>
+password <%= node['quagga']['password'] %>
+log stdout
+!
+<%- if node['quagga']['ospfd']['network'] %>
+router ospf
+ redistribute connected
+ network <%= node['quagga']['ospfd']['network'] %> area 0.0.0.0
+<%- end %>
+
