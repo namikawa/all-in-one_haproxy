@@ -7,13 +7,21 @@ describe 'all-in-one_haproxy::quagga' do
     expect(chef_run).to install_package("quagga")
   end
 
+  it "configure zebra.conf" do
+    expect(chef_run).to render_file('/etc/quagga/zebra.conf').with_content("password zebra")
+  end
+
+  it "configure ospfd.conf" do
+    expect(chef_run).to render_file('/etc/quagga/ospfd.conf').with_content("redistribute connected")
+  end
+
   it 'service zebra' do
     expect(chef_run).to enable_service('zebra')
-    expect(chef_run).to start_service('zebra')
+    expect(chef_run).to restart_service('zebra')
   end
   it 'service ospfd' do
     expect(chef_run).to enable_service('ospfd')
-    expect(chef_run).to start_service('ospfd')
+    expect(chef_run).to restart_service('ospfd')
   end
 end
 
