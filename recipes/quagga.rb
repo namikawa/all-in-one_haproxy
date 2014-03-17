@@ -15,8 +15,15 @@ end
   zebra
   ospfd
 }.each do |srv|
+  template "/etc/quagga/#{srv}.conf" do
+    source "quagga/#{srv}.conf.erb"
+    user "quagga"
+    group "quagga"
+    mode 0640
+  end
+
   service srv do
-    action [ :enable, :start ]
+    action [ :enable, :restart ]
   end
 end
 

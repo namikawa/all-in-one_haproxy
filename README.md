@@ -9,6 +9,7 @@ all-in-one_haproxy Cookbook
 - keepalivedの導入 (HAクラスタ構成の実現)
 - HAProxyの導入 (LB/ReverseProxyソフトウェア)
 - iptables/ip6tablesの設定 (接続元の限定)
+- Quaggaの導入 (エッジルータ等との動的経路広報の実現)
 - snmpdの設定と起動
 - swap領域の作成
 - その他kernelパラメータの調整
@@ -49,6 +50,8 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 - `all-in-one_haproxy::iptables`
 
 全て必要ない場合は、必要に応じて`run_list`等で、必要なRecipeを指定してください。
+
+(`all-in-one_haproxy::quagga`はdefaultからは外してあります。)
 
 #### node.jsonのsample
 
@@ -108,6 +111,5 @@ HAクラスタを構成すべき2台とも同じCookbookで構築できますが
 ToDo
 ----
 
-- 動的ルーティング対応
 - HAProxyのSSL対応
 
