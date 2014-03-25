@@ -98,6 +98,17 @@ Cookbookの事前配置をせずに、手っ取り早く試したい場合は、
 - `node['ip6tables']['allow']['src']['(任意の文字列)']`
 
 
+#### HAProxyでSSLの利用
+
+HAProxyのfrontend部分のAttributeを設定することにより使えます。
+
+例えば、SSLでHTTPS(443)を利用する場合のサンプルは以下です。
+
+- `node['haproxy']['frontend']['(任意の文字列)']['bind_port'] = "443"`
+- `node['haproxy']['frontend']['(任意の文字列)']['bind_option'] = "ssl crt /etc/haproxy/server.pem"`
+- `node['haproxy']['frontend']['(任意の文字列)']['mode'] = "http"`
+
+
 #### HAクラスタ構成(2台)での利用
 
 HAクラスタを構成すべき2台とも同じCookbookで構築できますが、少なくとも以下のAttributeを、2台それぞれで変更する必要があります。
@@ -111,5 +122,5 @@ HAクラスタを構成すべき2台とも同じCookbookで構築できますが
 ToDo
 ----
 
-- HAProxyのSSL対応
+- SSL用の鍵ファイルの配置
 
