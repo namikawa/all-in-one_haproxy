@@ -45,6 +45,7 @@ default['haproxy']['backend']['mysql'] = {
 default['haproxy']['frontend']['mysql'] = {
   "name" => "mysql",
   "bind_port" => "3306",
+  "bind_option" => "",
   "mode" => "tcp",
   "default_backend" => default['haproxy']['backend']['mysql']['name'],
 }

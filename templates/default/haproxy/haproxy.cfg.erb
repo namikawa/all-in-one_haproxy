@@ -23,7 +23,7 @@ defaults
 <%- for id, fe in node['haproxy']['frontend'] do %>
 frontend <%= fe['name'] %>
     <%- for addr in node['keepalived']['virtual_ipaddress']["#{id}"] do %>
-    bind        <%= addr %>:<%= fe['bind_port'] %>
+    bind        <%= addr %>:<%= fe['bind_port'] %> <%= fe['bind_option'] %>
     <%- end %>
     mode        <%= fe['mode'] %>
     default_backend  <%= fe['default_backend'] %>
