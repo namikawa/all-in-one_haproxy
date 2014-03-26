@@ -17,6 +17,11 @@ template "/etc/haproxy/haproxy.cfg" do
   mode 0644
 end
 
+template "/etc/haproxy/server.pem" do
+  source "haproxy/server.pem.erb"
+  mode 0600
+end
+
 service "haproxy" do
   action [ :disable, :stop ]
 end
