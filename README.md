@@ -108,6 +108,13 @@ HAProxyのfrontend部分のAttributeを設定することにより使えます�
 node['haproxy']['frontend']['(任意の文字列)']['bind_port'] = "443"
 node['haproxy']['frontend']['(任意の文字列)']['bind_option'] = "ssl crt /etc/haproxy/server.pem"
 node['haproxy']['frontend']['(任意の文字列)']['mode'] = "http"
+node['haproxy']['ssl_key'] = <<"EOS"
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAK.....
+
+.....省略.....
+
+EOS
 ```
 
 #### HAクラスタ構成(2台)での利用
@@ -122,6 +129,4 @@ HAクラスタを構成すべき2台とも同じCookbookで構築できますが
 
 ToDo
 ----
-
-- SSL用の鍵ファイルの配置
 
