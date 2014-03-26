@@ -104,10 +104,11 @@ HAProxyのfrontend部分のAttributeを設定することにより使えます�
 
 例えば、SSLでHTTPS(443)を利用する場合のサンプルは以下です。
 
-- `node['haproxy']['frontend']['(任意の文字列)']['bind_port'] = "443"`
-- `node['haproxy']['frontend']['(任意の文字列)']['bind_option'] = "ssl crt /etc/haproxy/server.pem"`
-- `node['haproxy']['frontend']['(任意の文字列)']['mode'] = "http"`
-
+```ruby
+node['haproxy']['frontend']['(任意の文字列)']['bind_port'] = "443"
+node['haproxy']['frontend']['(任意の文字列)']['bind_option'] = "ssl crt /etc/haproxy/server.pem"
+node['haproxy']['frontend']['(任意の文字列)']['mode'] = "http"
+```
 
 #### HAクラスタ構成(2台)での利用
 
