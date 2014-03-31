@@ -3,8 +3,8 @@
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 <%- if !node["#{@file}"].nil? and node["#{@file}"].size != 0 %>
-  <%- for id, filter in node["#{@file}"]['allow']['src'] do %>
-    <%- for addr in filter['address'] do %>
+  <%- node["#{@file}"]['allow']['src'].each do |id, filter| %>
+    <%- filter['address'].each do |addr| %>
 -A INPUT -s <%= addr %> -p tcp -m tcp --dport <%= filter['dport'] %> -j ACCEPT
     <%- end %>
 -A INPUT -p tcp -m tcp --dport <%= filter['dport'] %> -j REJECT

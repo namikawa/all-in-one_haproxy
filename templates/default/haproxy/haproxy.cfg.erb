@@ -20,25 +20,25 @@ defaults
     timeout server          <%= node['haproxy']['defaults']['to_server'] %>
     timeout check           <%= node['haproxy']['defaults']['to_check'] %>
 
-<%- for id, fe in node['haproxy']['frontend'] do %>
+<%- node['haproxy']['frontend'].each do |id, fe| %>
 frontend <%= fe['name'] %>
-    <%- for addr in node['keepalived']['virtual_ipaddress']["#{id}"] do %>
+    <%- node['keepalived']['virtual_ipaddress']["#{id}"].each do |addr| %>
     bind        <%= addr %>:<%= fe['bind_port'] %> <%= fe['bind_option'] %>
     <%- end %>
     mode        <%= fe['mode'] %>
     default_backend  <%= fe['default_backend'] %>
 <%- end %>
 
-<%- for id, be in node['haproxy']['backend'] do %>
+<%- node['haproxy']['backend'].each do |id, be| %>
 backend <%= be['name'] %>
     mode        <%= be['mode'] %>
     balance     <%= be['balance'] %>
     <%- if !be['option'].nil? and be['option'].size != 0 %>
-      <%- for opt in be['option'] %>
+      <%- be['option'].each do |opt| %>
     option      <%= opt %>
       <%- end %>
     <%- end %>
-    <%- for srvinfo in be['server'] %>
+    <%- be['server'].each do |srvinfo| %>
     server <%= srvinfo %>
     <%- end %>
 <%- end %>
