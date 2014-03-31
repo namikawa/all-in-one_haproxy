@@ -1,5 +1,5 @@
-all-in-one_haproxy Cookbook
-===========================
+all-in-one_haproxy Chef Cookbook
+================================
 
 2台でのHA構成を想定したHAProxyサーバを作るためのChef Cookbook。
 
