@@ -5,5 +5,5 @@ This file is used to list changes made in each version of the all-in-one_haproxy
 
 0.1.0
 -----
-- [Y.Namikawa] - Initial release of all-in-one_haproxy
+- [2014/04/01 Y.Namikawa] - Initial release of all-in-one_haproxy
 
