@@ -1,6 +1,6 @@
 def package_localrpm(pkg, file)
   cookbook_file "/tmp/#{file}" do
-    source file
+    source "rpms/#{file}"
     mode 0644
   end
 
