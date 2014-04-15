@@ -3,22 +3,22 @@ All-In-One HAProxy Chef Cookbook
 
 2台でのHA構成を想定したHAProxyサーバを作るためのChef Cookbook。
 
-以下が処理概要。
+以下が本Cookbook反映後に期待できるサーバの稼働状態。
 
-- rsync + lsyncdの導入 (各種設定ファイルの同期)
-- keepalivedの導入 (HAクラスタ構成の実現)
-- HAProxyの導入 (LB/ReverseProxyソフトウェア)
-- iptables/ip6tablesの設定 (接続元の限定)
-- Quaggaの導入 (エッジルータ等との動的経路広報の実現)
-- snmpdの設定と起動
-- swap領域の作成
+- rsync + lsyncdの稼働 (各種設定ファイルの同期)
+- keepalivedの稼働 (HAクラスタ構成の実現)
+- HAProxyの稼働 (LB/ReverseProxyソフトウェア)
+- iptables/ip6tablesの稼働 (接続元の限定)
+- Quaggaの稼働 (エッジルータ等との動的経路広報の実現)
+- snmpdの稼働 (各種メトリクスの取得)
+- swap領域の調整
 - その他kernelパラメータの調整
 
 Requirements / Notice
 ---------------------
 
 - RHEL/CentOS 6系に対応
-- IPv4/IPv6/Dual Stack対応
+- IPv4/IPv6へのDual Stack対応
 - 残念なことに、他Cookbookとの共存はあまり意識していません
     - できる限り、本Cookbook単体でお使いください
 
