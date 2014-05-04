@@ -66,15 +66,13 @@ default['keepalived']['advert_int'] = "1"
 default['keepalived']['auth_pass'] = "DJc9kI1n"
 
 ##### limits.conf #####
-default['limits'] = [
-  "root    soft    nofile  65536",
-  "root    hard    nofile  65536",
-  "root    soft    stack   65536",
-  "root    hard    stack   65536",
-  "*       soft    nofile  65536",
-  "*       hard    nofile  65536",
-  "*       soft    stack   65536",
-]
+default['limits']['root']['soft_nofile'] = "65536"
+default['limits']['root']['hard_nofile'] = "65536"
+default['limits']['root']['soft_stack'] = "65536"
+default['limits']['root']['hard_stack'] = "65536"
+default['limits']['all']['soft_nofile'] = "65536"
+default['limits']['all']['hard_nofile'] = "65536"
+default['limits']['all']['soft_stack'] = "65536"
 
 ##### iptables & ip6tables #####
 default['iptables']['allow']['src']['mysql'] = {
