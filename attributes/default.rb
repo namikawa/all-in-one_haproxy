@@ -74,6 +74,8 @@ default['limits']['all']['soft_nofile'] = "65536"
 default['limits']['all']['hard_nofile'] = "65536"
 default['limits']['all']['soft_stack'] = "65536"
 
+default['limits']['extend_params'] = []
+
 ##### iptables & ip6tables #####
 default['iptables']['allow']['src']['mysql'] = {
   "dport" => "3306",

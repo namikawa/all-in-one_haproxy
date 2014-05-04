@@ -6,3 +6,7 @@ root    hard    stack   <%= node['limits']['root']['hard_stack'] %>
 *       soft    nofile  <%= node['limits']['all']['soft_nofile'] %>
 *       hard    nofile  <%= node['limits']['all']['hard_nofile'] %>
 *       soft    stack   <%= node['limits']['root']['soft_stack'] %>
+
+<%- node['limits']['extend_params'].each do |param| %>
+<%= param %>
+<%- end %>
