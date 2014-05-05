@@ -1,12 +1,11 @@
-kernel.sysrq = 0
-kernel.core_uses_pid = 1
-kernel.msgmnb = 65536
-kernel.msgmax = 65536
-kernel.shmmax = 68719476736
-kernel.shmall = 4294967296
-kernel.sem = 250 32000 96 128
-kernel.panic = 60
-kernel.sysrq = 1
+kernel.core_uses_pid = <%= node['sysctl']['kernel']['core_uses_pid'] %>
+kernel.msgmnb = <%= node['sysctl']['kernel']['msgmnb'] %>
+kernel.msgmax = <%= node['sysctl']['kernel']['msgmax'] %>
+kernel.shmmax = <%= node['sysctl']['kernel']['shmmax'] %>
+kernel.shmall = <%= node['sysctl']['kernel']['shmall'] %>
+kernel.sem = <%= node['sysctl']['kernel']['sem'] %>
+kernel.panic = <%= node['sysctl']['kernel']['panic'] %>
+kernel.sysrq = <%= node['sysctl']['kernel']['sysrq'] %>
 
 vm.swappiness = 10
 

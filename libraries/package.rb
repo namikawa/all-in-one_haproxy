@@ -1,3 +1,4 @@
+# Install local RPM package
 def package_localrpm(pkg, file)
   cookbook_file "/tmp/#{file}" do
     source "rpms/#{file}"

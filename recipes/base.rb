@@ -25,8 +25,8 @@ template "/etc/hosts" do
 end
 
 # sysctl
-cookbook_file "/etc/sysctl.conf" do
-  source "sysctl.conf"
+template "/etc/sysctl.conf" do
+  source "sysctl.conf.erb"
   mode 0644
 end
 
