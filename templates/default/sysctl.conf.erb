@@ -7,18 +7,19 @@ kernel.sem = <%= node['sysctl']['kernel']['sem'] %>
 kernel.panic = <%= node['sysctl']['kernel']['panic'] %>
 kernel.sysrq = <%= node['sysctl']['kernel']['sysrq'] %>
 
-vm.swappiness = 10
+vm.swappiness = <%= node['sysctl']['vm']['swappiness'] %>
 
-net.ipv4.ip_forward = 0
+net.ipv4.ip_forward = <%= node['sysctl']['net']['ipv4']['ip_forward'] %>
+net.ipv4.tcp_syncookies = <%= node['sysctl']['net']['ipv4']['tcp_syncookies'] %>
+net.ipv4.icmp_ignore_bogus_error_responses = <%= node['sysctl']['net']['ipv4']['icmp_ignore_bogus_error_responses'] %>
+net.ipv4.tcp_rmem = <%= node['sysctl']['net']['ipv4']['tcp_rmem'] %>
+net.ipv4.tcp_wmem = <%= node['sysctl']['net']['ipv4']['tcp_wmem'] %>
+net.ipv4.tcp_mem = <%= node['sysctl']['net']['ipv4']['tcp_mem'] %>
+net.ipv4.ip_local_port_range = <%= node['sysctl']['net']['ipv4']['ip_local_port_range'] %>
+
 net.ipv4.conf.default.rp_filter = 1
 net.ipv4.conf.default.accept_source_route = 0
-net.ipv4.tcp_syncookies = 1
-net.ipv4.icmp_ignore_bogus_error_responses = 1
 net.ipv4.conf.all.log_martians = 1
-net.ipv4.tcp_rmem = 4096 87380 1048576
-net.ipv4.tcp_wmem = 4096 16384 1048576
-net.ipv4.tcp_mem = 1048576 1048576 1048576
-net.ipv4.ip_local_port_range = 3500 65535
 
 net.core.somaxconn = 1024
 net.core.netdev_max_backlog = 2048

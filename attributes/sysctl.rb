@@ -10,3 +10,15 @@ default['sysctl']['kernel'] = {
   "sysrq" => "1",
 }
 
+default['sysctl']['vm']['swappiness'] = "10"
+
+default['sysctl']['net']['ipv4'] = {
+  "ip_forward" => "0",
+  "tcp_syncookies" => "1",
+  "icmp_ignore_bogus_error_responses" => "1",
+  "tcp_rmem" => "4096 87380 1048576",
+  "tcp_wmem" => "4096 16384 1048576",
+  "tcp_mem" => "1048576 1048576 1048576",
+  "ip_local_port_range" => "3500 65535",
+}
+
