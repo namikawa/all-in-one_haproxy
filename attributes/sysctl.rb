@@ -22,3 +22,10 @@ default['sysctl']['net']['ipv4'] = {
   "ip_local_port_range" => "3500 65535",
 }
 
+default['sysctl']['net']['ipv4']['conf']['default'] = {
+  "rp_filter" => "1",
+  "accept_source_route" => "0",
+}
+
+default['sysctl']['net']['ipv4']['conf']['all']['log_martians'] = "1"
+

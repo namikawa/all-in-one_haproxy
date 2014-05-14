@@ -17,9 +17,9 @@ net.ipv4.tcp_wmem = <%= node['sysctl']['net']['ipv4']['tcp_wmem'] %>
 net.ipv4.tcp_mem = <%= node['sysctl']['net']['ipv4']['tcp_mem'] %>
 net.ipv4.ip_local_port_range = <%= node['sysctl']['net']['ipv4']['ip_local_port_range'] %>
 
-net.ipv4.conf.default.rp_filter = 1
-net.ipv4.conf.default.accept_source_route = 0
-net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.rp_filter = <%= node['sysctl']['net']['ipv4']['conf']['default']['rp_filter'] %>
+net.ipv4.conf.default.accept_source_route = <%= node['sysctl']['net']['ipv4']['conf']['default']['accept_source_route'] %>
+net.ipv4.conf.all.log_martians = <%= node['sysctl']['net']['ipv4']['conf']['all']['log_martians'] %>
 
 net.core.somaxconn = 1024
 net.core.netdev_max_backlog = 2048
