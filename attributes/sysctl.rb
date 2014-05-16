@@ -29,3 +29,8 @@ default['sysctl']['net']['ipv4']['conf']['default'] = {
 
 default['sysctl']['net']['ipv4']['conf']['all']['log_martians'] = "1"
 
+default['sysctl']['net']['core'] = {
+  "somaxconn" => "1024",
+  "netdev_max_backlog" => "2048",
+}
+
