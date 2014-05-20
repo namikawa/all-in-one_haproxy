@@ -34,5 +34,8 @@ default['sysctl']['net']['core'] = {
   "netdev_max_backlog" => "2048",
   "rmem_max" => "1048576",
   "wmem_max" => "1048576",
+  "rmem_default" => "1048576",
+  "wmem_default" => "1048576",
+  "optmem_max" => "20480",
 }
 
