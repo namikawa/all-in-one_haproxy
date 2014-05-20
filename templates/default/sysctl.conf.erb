@@ -29,3 +29,7 @@ net.core.rmem_default = <%= node['sysctl']['net']['core']['rmem_default'] %>
 net.core.wmem_default = <%= node['sysctl']['net']['core']['wmem_default'] %>
 net.core.optmem_max = <%= node['sysctl']['net']['core']['optmem_max'] %>
 
+<%- node['sysctl']['extend_params'].each do |param| %>
+<%= param %>
+<%- end %>
+

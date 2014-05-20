@@ -1,4 +1,6 @@
 ##### sysctl #####
+
+### kernel
 default['sysctl']['kernel'] = {
   "core_uses_pid" => "0",
   "msgmnb" => "65536",
@@ -10,8 +12,10 @@ default['sysctl']['kernel'] = {
   "sysrq" => "1",
 }
 
+### vm
 default['sysctl']['vm']['swappiness'] = "10"
 
+### net.ipv4
 default['sysctl']['net']['ipv4'] = {
   "ip_forward" => "0",
   "tcp_syncookies" => "1",
@@ -29,6 +33,7 @@ default['sysctl']['net']['ipv4']['conf']['default'] = {
 
 default['sysctl']['net']['ipv4']['conf']['all']['log_martians'] = "1"
 
+### net.core
 default['sysctl']['net']['core'] = {
   "somaxconn" => "1024",
   "netdev_max_backlog" => "2048",
@@ -38,4 +43,7 @@ default['sysctl']['net']['core'] = {
   "wmem_default" => "1048576",
   "optmem_max" => "20480",
 }
+
+### other (extend parameters)
+default['sysctl']['extend_params'] = []
 
