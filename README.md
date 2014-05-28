@@ -21,7 +21,7 @@ Requirements / Notice
 - IPv4/IPv6へのDual Stack対応
 - 残念なことに、他Cookbookとの共存はあまり意識していません
     - できる限り、本Cookbook単体でお使いください
-    - 依存している外部Cookbookは無く、本Cookbook単体で完結しています
+    - 依存している外部Cookbookは無くし、本Cookbook単体で完結する作りにしています
 
 Usage
 -----
