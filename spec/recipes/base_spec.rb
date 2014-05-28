@@ -18,7 +18,7 @@ describe 'all-in-one_haproxy::base' do
   end
 
   it 'configure sysctl' do
-    expect(chef_run).to render_file('/etc/sysctl.conf').with_content('net.ipv4.ip_local_port_range')
+    expect(chef_run).to render_file('/etc/sysctl.conf').with_content('net.ipv4.ip_local_port_range = 3500 65535')
   end
 
   it 'configure limits.conf' do
