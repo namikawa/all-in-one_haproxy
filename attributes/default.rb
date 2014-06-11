@@ -53,7 +53,7 @@ default['haproxy']['frontend']['mysql'] = {
   "default_backend" => default['haproxy']['backend']['mysql']['name'],
 }
 
-default['haproxy']['stats']['bind'] = "ipv6@:3000"
+default['haproxy']['stats']['bind'] = "ipv4@:3000"
 default['haproxy']['stats']['uri'] = "/"
 
 ##### keepalived #####
