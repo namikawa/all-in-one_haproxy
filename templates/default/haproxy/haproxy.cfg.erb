@@ -1,10 +1,10 @@
 global
-    log         <%= node['haproxy']['log'] %>
-    chroot      <%= node['haproxy']['chroot'] %>
-    pidfile     <%= node['haproxy']['pid'] %>
-    maxconn     <%= node['haproxy']['maxconn'] %>
-    user        <%= node['haproxy']['user'] %>
-    group       <%= node['haproxy']['group'] %>
+    log         <%= node['haproxy']['global']['log'] %>
+    chroot      <%= node['haproxy']['global']['chroot'] %>
+    pidfile     <%= node['haproxy']['global']['pid'] %>
+    maxconn     <%= node['haproxy']['global']['maxconn'] %>
+    user        <%= node['haproxy']['global']['user'] %>
+    group       <%= node['haproxy']['global']['group'] %>
     daemon
     nbproc      <%= node['haproxy']['nbproc'] %>
     stats socket   <%= node['haproxy']['global']['stats']['socket'] %>
@@ -12,13 +12,13 @@ global
 
 defaults
     mode                    <%= node['haproxy']['defaults']['mode'] %>
-    log                     global
+    log                     <%= node['haproxy']['defaults']['log'] %>
     retries                 <%= node['haproxy']['defaults']['retries'] %>
-    timeout queue           <%= node['haproxy']['defaults']['to_queue'] %>
-    timeout connect         <%= node['haproxy']['defaults']['to_connect'] %>
-    timeout client          <%= node['haproxy']['defaults']['to_client'] %>
-    timeout server          <%= node['haproxy']['defaults']['to_server'] %>
-    timeout check           <%= node['haproxy']['defaults']['to_check'] %>
+    timeout queue           <%= node['haproxy']['defaults']['timeout']['queue'] %>
+    timeout connect         <%= node['haproxy']['defaults']['timeout']['connect'] %>
+    timeout client          <%= node['haproxy']['defaults']['timeout']['client'] %>
+    timeout server          <%= node['haproxy']['defaults']['timeout']['server'] %>
+    timeout check           <%= node['haproxy']['defaults']['timeout']['check'] %>
 
 <%- node['haproxy']['frontend'].each do |id, fe| %>
 frontend <%= fe['name'] %>
