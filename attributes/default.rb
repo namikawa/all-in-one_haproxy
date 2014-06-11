@@ -19,6 +19,8 @@ default['haproxy']['user'] = "nobody"
 default['haproxy']['group'] = "nobody"
 default['haproxy']['maxconn'] = "60000"
 default['haproxy']['nbproc'] = "2"
+default['haproxy']['global']['stats']['socket'] = "/var/run/haproxy.sock level user"
+default['haproxy']['global']['stats']['timeout'] = "10s"
 
 default['haproxy']['defaults']['mode'] = "tcp"
 default['haproxy']['defaults']['retries'] = "3"

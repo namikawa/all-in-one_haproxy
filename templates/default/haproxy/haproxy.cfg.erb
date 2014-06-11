@@ -7,8 +7,8 @@ global
     group       <%= node['haproxy']['group'] %>
     daemon
     nbproc      <%= node['haproxy']['nbproc'] %>
-    stats socket  /var/run/haproxy.sock level user
-    stats timeout 10s
+    stats socket   <%= node['haproxy']['global']['stats']['socket'] %>
+    stats timeout  <%= node['haproxy']['global']['stats']['timeout'] %>
 
 defaults
     mode                    <%= node['haproxy']['defaults']['mode'] %>
