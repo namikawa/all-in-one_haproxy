@@ -9,6 +9,8 @@
 
 # package
 %W{
+  telnet
+  tcpdump
   sysstat
   dstat
   mosh
