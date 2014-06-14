@@ -1,3 +1,6 @@
+##### hosts
+default['hosts']['extend_hosts'] = []
+
 ##### snmpd
 default['snmpd']['sec']['community'] = "public"
 default['snmpd']['sec']['source'] = [

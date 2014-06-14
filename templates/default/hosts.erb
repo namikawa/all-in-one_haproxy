@@ -4,3 +4,8 @@
 <%- if node['keepalived']['peer'] %>
 <%= node['keepalived']['peer'] %>  peer
 <%- end %>
+
+<%- node['hosts']['extend_hosts'].each do |host| %>
+<%= host %>
+<%- end %>
+
