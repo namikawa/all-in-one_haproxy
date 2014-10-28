@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-package_localrpm("haproxy", "haproxy-1.5.5-1.x86_64.rpm")
+package_localrpm("haproxy", "haproxy-1.5.6-1.x86_64.rpm")
 
 directory "/var/lib/haproxy" do
   mode 0755
