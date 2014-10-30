@@ -32,7 +32,7 @@ service "xinetd" do
 end
 
 # lsyncd
-package_localrpm("lsyncd", "lsyncd-2.1.4-1.el6.rf.x86_64.rpm")
+package_localrpm("lsyncd", "lsyncd-2.1.4-4.el6.x86_64.rpm")
 
 template "/etc/lsyncd.conf" do
   source "lsyncd.conf.erb"
