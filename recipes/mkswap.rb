@@ -15,7 +15,7 @@ script 'create swap-file' do
   interpreter 'bash'
   not_if { File.exists?('/var/swap/swap-file') }
   code <<-EOF
-    dd if=/dev/zero of=/var/swap/swap-file bs=1M count=2048 &&
+    dd if=/dev/zero of=/var/swap/swap-file bs=1M count=#{node['swap']['size']} &&
     chmod 600 /var/swap/swap-file &&
     mkswap /var/swap/swap-file
   EOF

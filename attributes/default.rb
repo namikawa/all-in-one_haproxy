@@ -1,6 +1,10 @@
 ##### hosts
 default['hosts']['extend_hosts'] = []
 
+##### mkswap
+# Swap Size (MegaByte)
+default['swap']['size'] = "2048"
+
 ##### snmpd
 default['snmpd']['sec']['community'] = "public"
 default['snmpd']['sec']['source'] = [
