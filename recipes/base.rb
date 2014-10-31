@@ -9,6 +9,7 @@
 
 # package
 %W{
+  vim
   telnet
   tcpdump
   sysstat
