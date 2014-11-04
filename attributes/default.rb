@@ -11,6 +11,7 @@ default['snmpd']['sec']['source'] = [
   "10.32.0.0/12",
   "localhost",
 ]
+default['snmpd']['extend_params'] = []
 
 ##### quagga (zebra)
 default['quagga']['password'] = "zebra"

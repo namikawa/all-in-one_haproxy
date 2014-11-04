@@ -471,3 +471,7 @@ dontLogTCPWrappersConnects yes
 disablePerl false
 perl do '/etc/snmp/haproxy.pl';
 
+# extend
+<%- for params in node['snmpd']['extend_params'] do %>
+<%= params %>
+<%- end %>
