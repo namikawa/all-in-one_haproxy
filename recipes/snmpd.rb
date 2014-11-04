@@ -19,6 +19,7 @@ end
 template "/etc/snmp/snmpd.conf" do
   source "snmp/snmpd.conf.erb"
   mode 0644
+  notifies :restart, "service[snmpd]"
 end
 
 cookbook_file "/etc/snmp/haproxy.pl" do
@@ -27,6 +28,6 @@ cookbook_file "/etc/snmp/haproxy.pl" do
 end
 
 service "snmpd" do
-  action [ :enable, :restart ]
+  action [ :enable, :start ]
 end
 
