@@ -18,6 +18,7 @@
     variables(
       :file => file
     )
+    notifies :restart, "service[#{file}]"
   end
 
   service file do
