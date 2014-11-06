@@ -20,15 +20,17 @@ end
 template "/etc/xinetd.d/rsync" do
   source "xinetd.d/rsync.erb"
   mode 0644
+  notifies :restart, "service[xinetd]"
 end
 
 template "/etc/rsyncd.conf" do
   source "rsyncd.conf.erb"
   mode 0644
+  notifies :restart, "service[xinetd]"
 end
 
 service "xinetd" do
-  action [ :enable, :restart ]
+  action [ :enable, :start ]
 end
 
 # lsyncd
