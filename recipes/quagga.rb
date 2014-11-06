@@ -20,10 +20,11 @@ end
     user "quagga"
     group "quagga"
     mode 0640
+    notifies :restart, "service[#{srv}]"
   end
 
   service srv do
-    action [ :enable, :restart ]
+    action [ :enable, :start ]
   end
 end
 
