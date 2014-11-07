@@ -19,7 +19,7 @@ Requirements / Notice
 
 - RHEL/CentOS 6系に対応
 - IPv4/IPv6へのDual Stack対応
-- 残念なことに、他Cookbookとの共存はあまり意識していません
+- 残念なことに、あえて他Cookbookとの共存はあまり意識していません
     - できる限り、本Cookbook単体でお使いください
     - 依存している外部Cookbookは無くし、本Cookbook単体で完結する作りにしています
 

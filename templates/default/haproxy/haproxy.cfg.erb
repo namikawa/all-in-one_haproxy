@@ -10,6 +10,10 @@ global
     stats socket   <%= node['haproxy']['global']['stats']['socket'] %>
     stats timeout  <%= node['haproxy']['global']['stats']['timeout'] %>
 
+    <%- node['haproxy']['global']['extend_params'].each do |param| %>
+    <%= param %>
+    <%- end %>
+
 defaults
     mode                    <%= node['haproxy']['defaults']['mode'] %>
     log                     <%= node['haproxy']['defaults']['log'] %>

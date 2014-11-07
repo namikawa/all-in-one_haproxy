@@ -9,6 +9,8 @@ default['haproxy']['global']['nbproc'] = "2"
 default['haproxy']['global']['stats']['socket'] = "/var/run/haproxy.sock level user"
 default['haproxy']['global']['stats']['timeout'] = "10s"
 
+default['haproxy']['global']['extend_params'] = []
+
 default['haproxy']['defaults']['mode'] = "tcp"
 default['haproxy']['defaults']['log'] = "global"
 default['haproxy']['defaults']['retries'] = "3"
