@@ -24,6 +24,10 @@ defaults
     timeout server          <%= node['haproxy']['defaults']['timeout']['server'] %>
     timeout check           <%= node['haproxy']['defaults']['timeout']['check'] %>
 
+    <%- node['haproxy']['defaults']['extend_params'].each do |param| %>
+    <%= param %>
+    <%- end %>
+
 <%- node['haproxy']['frontend'].each do |id, fe| %>
 frontend <%= fe['name'] %>
     <%- node['keepalived']['virtual_ipaddress']["#{id}"].each do |addr| %>

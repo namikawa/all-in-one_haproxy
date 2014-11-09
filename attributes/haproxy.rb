@@ -20,6 +20,8 @@ default['haproxy']['defaults']['timeout']['client'] = "8h"
 default['haproxy']['defaults']['timeout']['server'] = "8h"
 default['haproxy']['defaults']['timeout']['check'] = "10s"
 
+default['haproxy']['defaults']['extend_params'] = []
+
 default['haproxy']['backend']['mysql'] = {
   "name" => "mysql-slave",
   "mode" => "tcp",
