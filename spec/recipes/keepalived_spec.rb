@@ -25,7 +25,7 @@ describe 'all-in-one_haproxy::keepalived' do
 
   it 'service keepalived' do
     expect(chef_run).to enable_service('keepalived')
-    expect(chef_run).to restart_service('keepalived')
+    expect(chef_run).to start_service('keepalived')
   end
 end
 

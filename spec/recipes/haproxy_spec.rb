@@ -23,7 +23,6 @@ describe 'all-in-one_haproxy::haproxy' do
 
   it 'not service haproxy' do
     expect(chef_run).to disable_service('haproxy')
-    expect(chef_run).to stop_service('haproxy')
   end
 end
 

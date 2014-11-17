@@ -25,10 +25,11 @@ package_localrpm("keepalived", "keepalived-1.2.13-1.x86_64.rpm")
   template "/etc/keepalived/#{file}" do
     source "keepalived/#{file}.erb"
     mode 0600
+    notifies :restart, "service[keepalived]"
   end
 end
 
 service "keepalived" do
-  action [ :enable, :restart ]
+  action [ :enable, :start ]
 end
 

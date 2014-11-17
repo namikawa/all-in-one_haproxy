@@ -29,7 +29,6 @@ describe 'all-in-one_haproxy::lsyncd' do
 
   it 'not service lsyncd' do
     expect(chef_run).to disable_service('lsyncd')
-    expect(chef_run).to stop_service('lsyncd')
   end
 end
 
