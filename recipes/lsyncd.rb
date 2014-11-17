@@ -39,6 +39,7 @@ package_localrpm("lsyncd", "lsyncd-2.1.4-4.el6.x86_64.rpm")
 template "/etc/lsyncd.conf" do
   source "lsyncd.conf.erb"
   mode 0644
+  notifies :restart, "service[lsyncd]"
 end
 
 service "lsyncd" do
