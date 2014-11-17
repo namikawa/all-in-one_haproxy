@@ -23,6 +23,6 @@ template "/etc/haproxy/server.pem" do
 end
 
 service "haproxy" do
-  action [ :disable, :stop ]
+  action :disable
 end
 

@@ -42,6 +42,6 @@ template "/etc/lsyncd.conf" do
 end
 
 service "lsyncd" do
-  action [ :disable, :stop ]
+  action :disable
 end
 
