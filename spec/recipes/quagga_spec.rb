@@ -17,11 +17,11 @@ describe 'all-in-one_haproxy::quagga' do
 
   it 'service zebra' do
     expect(chef_run).to enable_service('zebra')
-    expect(chef_run).to restart_service('zebra')
+    expect(chef_run).to start_service('zebra')
   end
   it 'service ospfd' do
     expect(chef_run).to enable_service('ospfd')
-    expect(chef_run).to restart_service('ospfd')
+    expect(chef_run).to start_service('ospfd')
   end
 end
 

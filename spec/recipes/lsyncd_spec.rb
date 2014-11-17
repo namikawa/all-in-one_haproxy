@@ -20,7 +20,7 @@ describe 'all-in-one_haproxy::lsyncd' do
 
   it 'service xinetd' do
     expect(chef_run).to enable_service('xinetd')
-    expect(chef_run).to restart_service('xinetd')
+    expect(chef_run).to start_service('xinetd')
   end
 
   it 'configure lsyncd' do

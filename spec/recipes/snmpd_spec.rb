@@ -26,7 +26,7 @@ describe 'all-in-one_haproxy::snmpd' do
 
   it 'service snmpd' do
     expect(chef_run).to enable_service('snmpd')
-    expect(chef_run).to restart_service('snmpd')
+    expect(chef_run).to start_service('snmpd')
   end
 end
 
