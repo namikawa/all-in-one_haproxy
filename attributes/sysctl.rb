@@ -35,8 +35,8 @@ default['sysctl']['net']['ipv4']['conf']['all']['log_martians'] = "1"
 
 ### net.core
 default['sysctl']['net']['core'] = {
-  "somaxconn" => "1024",
-  "netdev_max_backlog" => "2048",
+  "somaxconn" => "2048",
+  "netdev_max_backlog" => "4196",
   "rmem_max" => "1048576",
   "wmem_max" => "1048576",
   "rmem_default" => "1048576",
