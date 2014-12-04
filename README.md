@@ -7,7 +7,7 @@ All-In-One HAProxy Chef Cookbook
 
 - rsync + lsyncdの稼働 (各種設定ファイルの同期)
 - keepalivedの稼働 (HAクラスタ構成の実現)
-- HAProxyの稼働 (LB/ReverseProxyソフトウェア)
+- HAProxyの稼働 (LB/ReverseProxyソフトウェア・SSL対応)
 - iptables/ip6tablesの稼働 (接続元の限定)
 - Quaggaの稼働 (エッジルータ等との動的経路広報の実現)
 - snmpdの稼働 (各種メトリクスの取得)
