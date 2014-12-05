@@ -3,6 +3,10 @@ all-in-one_haproxy CHANGELOG
 
 This file is used to list changes made in each version of the all-in-one_haproxy cookbook.
 
+0.2.1
+-----
+- [2014/12/05 Y.Namikawa] - fix. (write a mistake cookbook version.)
+
 0.2.0
 -----
 - [2014/11/21 Y.Namikawa] - Upgrade HAProxy version. (1.5.6 -> 1.5.8)
