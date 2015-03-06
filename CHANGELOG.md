@@ -3,6 +3,11 @@ all-in-one_haproxy CHANGELOG
 
 This file is used to list changes made in each version of the all-in-one_haproxy cookbook.
 
+0.2.3
+-----
+- [2015/03/06 Y.Namikawa] - Upgrade HAProxy package. (1.5.9 -> 1.5.11)
+- [2015/03/05 Y.Namikawa] - Upgrade Keepalive package. (1.2.13 -> 1.2.15)
+
 0.2.2
 -----
 - [2014/12/25 Y.Namikawa] - Upgrade HAProxy version. (1.5.8 -> 1.5.9)
