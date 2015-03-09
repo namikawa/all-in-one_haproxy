@@ -6,7 +6,8 @@ global
     user        <%= node['haproxy']['global']['user'] %>
     group       <%= node['haproxy']['global']['group'] %>
     daemon
-    nbproc      <%= node['haproxy']['nbproc'] %>
+    nbproc      <%= node['haproxy']['global']['nbproc'] %>
+
     stats socket   <%= node['haproxy']['global']['stats']['socket'] %>
     stats timeout  <%= node['haproxy']['global']['stats']['timeout'] %>
 
