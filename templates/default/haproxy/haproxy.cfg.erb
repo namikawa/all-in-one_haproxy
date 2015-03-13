@@ -8,6 +8,10 @@ global
     daemon
     nbproc      <%= node['haproxy']['global']['nbproc'] %>
 
+    <%- if node['haproxy']['global']['quiet'] %>
+    quiet
+    <%- end %>
+
     stats socket   <%= node['haproxy']['global']['stats']['socket'] %>
     stats timeout  <%= node['haproxy']['global']['stats']['timeout'] %>
 
