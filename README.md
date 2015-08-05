@@ -17,7 +17,7 @@ All-In-One HAProxy Chef Cookbook
 Requirements / Notice
 ---------------------
 
-- RHEL/CentOS 6系に対応
+- RHEL/CentOS 6系に対応 (動作確認済)
 - IPv4/IPv6へのDual Stack対応
 - 残念なことに、あえて他Cookbookとの共存はあまり意識していません
     - できる限り、本Cookbook単体でお使いください

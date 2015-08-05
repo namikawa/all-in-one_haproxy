@@ -2,7 +2,7 @@
 # Cookbook Name:: all-in-one_haproxy
 # Recipe:: lsyncd
 #
-# Copyright 2014, Yuuki NAMIKAWA
+# Copyright 2014-2015, Yuuki NAMIKAWA
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -34,7 +34,7 @@ service "xinetd" do
 end
 
 # lsyncd
-package_localrpm("lsyncd", "lsyncd-2.1.4-4.el6.x86_64.rpm")
+package_localrpm("lsyncd", "lsyncd-2.1.5-0.el6.x86_64.rpm")
 
 template "/etc/lsyncd.conf" do
   source "lsyncd.conf.erb"

@@ -2,11 +2,11 @@
 # Cookbook Name:: all-in-one_haproxy
 # Recipe:: haproxy
 #
-# Copyright 2014, Yuuki NAMIKAWA
+# Copyright 2014-2015, Yuuki NAMIKAWA
 #
 # All rights reserved - Do Not Redistribute
 #
-package_localrpm("haproxy", "haproxy-1.5.12-1.x86_64.rpm")
+package_localrpm("haproxy", "haproxy-1.5.14-1.x86_64.rpm")
 
 directory "/var/lib/haproxy" do
   mode 0755

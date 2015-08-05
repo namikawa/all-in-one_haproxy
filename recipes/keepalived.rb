@@ -2,7 +2,7 @@
 # Cookbook Name:: all-in-one_haproxy
 # Recipe:: keepalived
 #
-# Copyright 2014, Yuuki NAMIKAWA
+# Copyright 2014-2015, Yuuki NAMIKAWA
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -16,7 +16,7 @@
   end
 end
 
-package_localrpm("keepalived", "keepalived-1.2.15-1.x86_64.rpm")
+package_localrpm("keepalived", "keepalived-1.2.19-1.x86_64.rpm")
 
 %w{
   keepalived.conf
