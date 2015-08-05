@@ -59,7 +59,7 @@ backend <%= be['name'] %>
 listen haproxy-stats
     bind        <%= node['haproxy']['stats']['bind'] %>
     mode        http
-    maxconn     32
+    maxconn     <%= node['haproxy']['stats']['maxconn'] %>
     stats       enable
     stats       show-legends
     stats       uri <%= node['haproxy']['stats']['uri'] %>

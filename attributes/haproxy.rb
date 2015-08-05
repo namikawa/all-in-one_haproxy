@@ -47,5 +47,6 @@ default['haproxy']['frontend']['mysql'] = {
 }
 
 default['haproxy']['stats']['bind'] = "ipv4@:3000"
+default['haproxy']['stats']['maxconn'] = "32"
 default['haproxy']['stats']['uri'] = "/"
 
