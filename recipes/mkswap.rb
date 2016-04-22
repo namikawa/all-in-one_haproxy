@@ -25,6 +25,7 @@ mount '/dev/null' do  # swap file entry for fstab
   action :enable  # cannot mount; only add to fstab
   device '/var/swap/swap-file'
   fstype 'swap'
+  pass 0
 end
 
 script 'activate swap' do
